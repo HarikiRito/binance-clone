@@ -1,0 +1,33 @@
+export const timeframes: Record<string, string> = {
+  0: '1m',
+  1: '3m',
+  2: '5m',
+  3: '15m',
+  4: '30m',
+  5: '1H',
+  6: '2H',
+  7: '4H',
+  8: '6H',
+  9: '8H',
+  10: '1D',
+  11: '3D',
+  12: '1W',
+  13: '1M',
+};
+
+export const timeframeForKLine: Record<string, string> = {
+  0: '1m',
+  1: '3m',
+  2: '5m',
+  3: '15m',
+  4: '30m',
+  5: '1h',
+  6: '2h',
+  7: '4h',
+  8: '6h',
+  9: '8h',
+  10: '1d',
+  11: '3d',
+  12: '1w',
+  13: '1M',
+};

@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './App.scss';
+import { SocketClient } from './utils/websocket';
+import Timeframe from './components/Timeframe';
+import { GlobalContext, GlobalState } from './state/global';
+import { timeframes } from './utils/constant';
+import Canvas from './components/Canvas';
+import { getKLines } from './utils/api';
 
 function App() {
+  const [state, setState] = useState<GlobalState>({
+    currentTimeframeKey: '0',
+    selectedTimeframeKeys: Object.keys(timeframes),
+  });
+  useEffect(() => {
+    // client.on('btcbusd@kline_1m', (data) => {
+    //   console.log(data);
+    // });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="main">
+      <GlobalContext.Provider value={{ state, setState }}>
+        <div>
+          <Timeframe />
+        </div>
+        <Canvas />
+      </GlobalContext.Provider>
     </div>
   );
 }
